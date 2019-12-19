@@ -7,12 +7,12 @@ module.exports = Router()
       .create(req.body)
       .then(user => res.send(user))
       .catch(next);
-  });
+  })
 
   .post('login', (req, res, next) => {
-      User
+    User
       .authenticate(req.body)
       .then(user => res.send(user))
       .catch(next);
   });
-  
+
