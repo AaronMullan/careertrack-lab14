@@ -22,7 +22,7 @@ describe('app routes', () => {
 
   it('can sign up a user', () => {
     return request(app)
-      .post('api/v1/auth/signup')
+      .post('/api/v1/auth/signup')
       .send({ email: 'bongo@bongo.com', password: 'abc123' })
       .then(res => {
         expect(res.body).toEqual({
@@ -35,7 +35,7 @@ describe('app routes', () => {
   it('can login a user', async() => {
     const user = await User.create({ email: 'bingo@bongo.com', password: 'admin' });
     return request(app)
-      .post('api/v1/auth/login')
+      .post('/api/v1/auth/login')
       .send ({ email: 'bingo@bongo.com', password: 'admin' })
       .then(res => {
         expect(res.body).toEqual({
@@ -45,6 +45,6 @@ describe('app routes', () => {
         });
       });
   });
-  
+
   
 });

@@ -1,5 +1,5 @@
 const { Router } =  require('express');
-const User = require('../models/User');
+const User = require('../lib/models/User');
 
 module.exports = Router()
   .post('/signup', (req, res, next) => {
@@ -9,7 +9,7 @@ module.exports = Router()
       .catch(next);
   })
 
-  .post('login', (req, res, next) => {
+  .post('/login', (req, res, next) => {
     User
       .authenticate(req.body)
       .then(user => res.send(user))
